@@ -12,7 +12,7 @@ easy_scamp - 人性化旋律转 SCAMP 格式。写音乐就像 [('C4',4), ('E4',
 
 #### 使用说明
 
-**本模块的核心是`translate`函数**（如果确实有相应需求，你也可以用其他函数，但是平常`translate`够用了）,你可以在模块内找到一个DAFAULT常量，它的值就是'translate'。
+**本模块的核心是`translate`函数**（如果确实有相应需求，你也可以用其他函数，但是平常`translate`够用了）,你可以在模块内找到一个DEFAULT常量，它的值就是'translate'。
 
 def translate(mlist, bpm=120, wnote=4):
 
