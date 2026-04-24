@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "easy-scamp"
+name = "notemidi"
 version = "0.1.0"
-description = "Human-friendly wrapper for SCAMP: note names, dotted notes, additive durations"
+description = "A lightweight tool library for converting human-friendly music notation to MIDI data."
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
@@ -25,12 +25,9 @@ classifiers = [
     "Topic :: Multimedia :: Sound/Audio :: MIDI",
     "Topic :: Artistic Software",
 ]
-dependencies = [
-    "scamp>=0.8.0",
-]
 requires-python = ">=3.7"
 
 [project.urls]
-Homepage = "https://gitee.com/dream-function/easy-scamp"
-Repository = "https://gitee.com/dream-function/easy-scamp.git"
-Issues = "https://gitee.com/dream-function/easy-scamp/issues"
+Homepage = "https://github.com/dreamfunction/notemidi"
+Repository = "https://github.com/dreamfunction/notemidi.git"
+Issues = "https://github.com/dreamfunction/notemidi/issues"

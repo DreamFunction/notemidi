@@ -1,6 +1,7 @@
 # notemidi
 
-该项目在 Gitee/Github/Gitcode 平台上均有同步（gitee用户名为dream-function，github和gitcode用户名为dreamfunction）
+该项目在 Gitee/Github/Gitcode 平台上均有同步
+（gitee用户名为dream-function，github和gitcode用户名为dreamfunction）
 
 #### 介绍
 
