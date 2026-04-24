@@ -1,24 +1,41 @@
-# easy_scamp
+# notemidi
 
-**该项目主仓库在 `https://gitee.com/dream-function/easy-scamp` 。有条件的朋友可以去那里。**
+该项目在 Gitee/Github/Gitcode 平台上均有同步（gitee用户名为dream-function，github和gitcode用户名为dreamfunction）
 
 #### 介绍
-easy_scamp - 人性化旋律转 SCAMP 格式。写音乐就像 [('C4',4), ('E4',4), ('r',2)]，直接得到 (MIDI 编号, 秒数)。
 
-#### 安装教程
+**人性化乐谱转 MIDI 数据的轻量工具库。**
 
-1. 确保已安装 SCAMP：`pip install scamp`
-2. 将 `easy_scamp.py` 下载到你的项目目录中
-3. 或者直接复制代码使用
+notemidi 让你用最自然的方式写乐谱：`('C4', 4)` 表示 C4（MIDI60） 四分音符。它负责把这种“文本乐谱”翻译成 MIDI 能听懂的数据（音符编号 + 秒数）。
+
+##### ✨ 核心功能
+
+- **文本乐谱**：`('C4', 4)` 直观描述音符
+- **支持附点**：`'4.'` 表示附点四分
+- **支持休止符**：`'r'` 或 `None`
+- **支持时值加法**：`'2+2+4'` 表示 2+2+4 = 8 拍
+
+##### 📦 与 MIDI 库的关系
+
+notemidi **不是** 又一个 MIDI 读写库（如 `mido`, `python-rtmidi`），而是：
+
+- 专注于“人性化输入”这一层
+- 输出标准化的 `(pitch, duration)` 数据，可被任何 MIDI 或音频库使用
+
+
+#### 安装方式
+
+`pip install notemidi` 或者 直接复制代码使用
 
 
 #### 使用说明
 
 **本模块的核心是`translate`函数**（如果确实有相应需求，你也可以用其他函数，但是平常`translate`够用了）,你可以在模块内找到一个DEFAULT常量，它的值就是'translate'。
 
+```python
 def translate(mlist, bpm=120, wnote=4):
 
-    将人性化旋律列表转换为 SCAMP 可用的 (MIDI 音高, 秒数) 列表。
+    将人性化旋律列表转换为 MIDI 音高, 秒数 列表。
     
     参数:
         mlist: 列表，每个元素为 (音符名, 时值) 元组
@@ -34,10 +51,11 @@ def translate(mlist, bpm=120, wnote=4):
         TypeError: 输入类型错误
         ValueError: 时值不合法或元组长度不为2
         KeyError: 未知音符名
+```
 
+#### 附录
 
-
-#### 异常对照表
+##### 异常对照表
 
 
 | 位置 | 中文 | 英文 |
@@ -58,8 +76,9 @@ def translate(mlist, bpm=120, wnote=4):
 | `translate` | `"音乐列表内的元组长度必须是2"` | `"Each tuple must have length 2 (note, duration)"` |
 | `translate` | `"时值字符串不合法"` | `"Invalid duration string"` |
 
-#### 其他函数使用说明
+##### 其他函数使用说明
 
+```python
 def translate_dot(dur, bpm=120, wnote=4):
 
     将附点时值字符串（如 '4.'）转换为秒数。
@@ -75,7 +94,9 @@ def translate_dot(dur, bpm=120, wnote=4):
     异常:
         TypeError: 时值字符串格式不正确（不是数字后跟点号）
         ValueError: 时值 <= 0
+```
 
+```python
 def translate_duration(dur, bpm=120, wnote=4):
 
     将普通数字时值转换为秒数。
@@ -105,7 +126,9 @@ def translate_note(note):
     异常:
         ValueError: 输入类型不是字符串、数字或 None
         KeyError: 音符名不在映射表中
+```
 
+```python
 def translate_tie(dur, bpm=120, wnote=4):
 
     解析加法时值字符串（如 '2+2+4'），返回总秒数。
@@ -120,6 +143,7 @@ def translate_tie(dur, bpm=120, wnote=4):
     
     异常:
         ValueError: 表达式为空、连续两个 '+'、开头/结尾有 '+'，或某部分非数字/附点
+```
 
 #### 参与贡献
 
