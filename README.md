@@ -1,8 +1,8 @@
 # notemidi
 
 Language:
-English
-中文 请查看[README.zh.md](README.zh.md)。
+* English
+* 中文 请查看[README.zh.md](README.zh.md)。
 
 This project is synchronized across Gitee, GitHub, and GitCode.  
 (Gitee username: dream-function; GitHub/GitCode username: dreamfunction)
